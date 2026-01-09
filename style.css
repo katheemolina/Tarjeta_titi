@@ -274,16 +274,25 @@ body {
 
 /* Responsive para móviles */
 @media (max-width: 768px) {
+    .main-image {
+        max-height: 75vh;
+        object-fit: contain;
+    }
+
     .btn-comenzar {
         padding: 15px 30px;
         font-size: 20px;
-        bottom: 8%;
+        bottom: 15%;
     }
 
     .btn-siguiente {
         padding: 12px 28px;
         font-size: 18px;
-        bottom: 4%;
+        bottom: 12%;
+    }
+
+    .btn-elegir-color {
+        bottom: 12%;
     }
 
     .sparkle {
@@ -472,22 +481,31 @@ body {
 }
 
 @media (max-width: 480px) {
+    .main-image {
+        max-height: 70vh;
+        object-fit: contain;
+    }
+
+    .screen {
+        padding-bottom: 20px;
+    }
+
     .btn-comenzar {
-        padding: 12px 25px;
+        padding: 14px 28px;
         font-size: 18px;
-        bottom: 6%;
+        bottom: 18%;
     }
 
     .btn-siguiente {
-        padding: 10px 25px;
+        padding: 12px 28px;
         font-size: 16px;
-        bottom: 3%;
+        bottom: 15%;
     }
 
     .btn-elegir-color {
-        padding: 10px 25px;
+        padding: 12px 28px;
         font-size: 16px;
-        bottom: 3%;
+        bottom: 15%;
     }
 
     .modal-content {
@@ -563,7 +581,12 @@ body {
     }
 
     #final .main-image {
-        max-height: 60vh;
+        max-height: 55vh;
+    }
+
+    .mensaje-final {
+        padding: 15px 12px;
+        position: relative;
     }
 }
 
