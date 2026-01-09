@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Pantalla de Inicio -->
+    <div id="inicio" class="screen active">
+        <div class="sparkle-container">
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+        </div>
+        <img src="img/inicio.png" alt="Inicio" class="main-image">
+        <button class="btn-comenzar" onclick="comenzar()">Comenzar!</button>
+    </div>
+
+    <!-- Pantalla de Historia 1 -->
+    <div id="historia1" class="screen">
+        <img src="img/historia1.png" alt="Historia 1" class="main-image">
+        <button class="btn-siguiente" onclick="siguiente()">Siguiente</button>
+    </div>
+
+    <!-- Pantalla de Historia 2 -->
+    <div id="historia2" class="screen">
+        <img src="img/historia2.png" alt="Historia 2" class="main-image">
+        <button class="btn-siguiente" onclick="siguiente()">Siguiente</button>
+    </div>
+
+    <!-- Pantalla de Historia 3 -->
+    <div id="historia3" class="screen">
+        <img src="img/historia3.png" alt="Historia 3" class="main-image">
+        <button id="btn-historia3" class="btn-elegir-color" onclick="abrirModalColor()">Elija color</button>
+    </div>
+
+    <!-- Pantalla Peinado 3 (Azul) -->
+    <div id="peinado3" class="screen">
+        <img src="img/peinado3.png" alt="Peinado 3" class="main-image">
+        <button class="btn-siguiente" onclick="siguiente()">Siguiente</button>
+    </div>
+
+    <!-- Pantalla Peinado 5 (Rubio) -->
+    <div id="peinado5" class="screen">
+        <img src="img/peinado5.png" alt="Peinado 5" class="main-image">
+        <button class="btn-siguiente" onclick="siguiente()">Siguiente</button>
+    </div>
+
+    <!-- Modal de Selección de Color -->
+    <div id="modal-color" class="modal">
+        <div class="modal-content">
+            <!-- Vista de selección de color inicial -->
+            <div id="vista-seleccion-color" class="modal-vista active">
+                <h2>Elija un color</h2>
+                <div class="color-options">
+                    <div class="color-option" onclick="elegirColor('azul')">
+                        <img src="img/azul.jpg" alt="Azul">
+                        <p>Azul</p>
+                    </div>
+                    <div class="color-option" onclick="elegirColor('rubio')">
+                        <img src="img/rubio.jpg" alt="Rubio">
+                        <p>Rubio</p>
+                    </div>
+                    <div class="color-option" onclick="elegirColor('marron')">
+                        <img src="img/marron.png" alt="Marrón">
+                        <p>Marrón</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vista de peinado azul -->
+            <div id="vista-peinado-azul" class="modal-vista">
+                <h2>Peinado Azul</h2>
+                <img src="img/peinado3.png" alt="Peinado Azul" class="peinado-preview">
+                <div class="color-options">
+                    <div class="color-option" onclick="elegirColor('azul')">
+                        <img src="img/azul.jpg" alt="Azul">
+                        <p>Azul</p>
+                    </div>
+                    <div class="color-option" onclick="elegirColor('rubio')">
+                        <img src="img/rubio.jpg" alt="Rubio">
+                        <p>Rubio</p>
+                    </div>
+                    <div class="color-option" onclick="elegirColor('marron')">
+                        <img src="img/marron.png" alt="Marrón">
+                        <p>Marrón</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vista de peinado rubio -->
+            <div id="vista-peinado-rubio" class="modal-vista">
+                <h2>Peinado Rubio</h2>
+                <img src="img/peinado5.png" alt="Peinado Rubio" class="peinado-preview">
+                <div class="color-options">
+                    <div class="color-option" onclick="elegirColor('azul')">
+                        <img src="img/azul.jpg" alt="Azul">
+                        <p>Azul</p>
+                    </div>
+                    <div class="color-option" onclick="elegirColor('rubio')">
+                        <img src="img/rubio.jpg" alt="Rubio">
+                        <p>Rubio</p>
+                    </div>
+                    <div class="color-option" onclick="elegirColor('marron')">
+                        <img src="img/marron.png" alt="Marrón">
+                        <p>Marrón</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Peinado -->
+    <div id="modal-peinado" class="modal">
+        <div class="modal-content">
+            <!-- Vista de selección de herramientas -->
+            <div id="vista-herramientas" class="modal-vista active">
+                <h2>Elija una herramienta</h2>
+                <div class="herramientas-options">
+                    <div class="herramienta-option" onclick="elegirHerramienta('extension')">
+                        <img src="img/extension.jpg" alt="Extensión">
+                        <p>Extensión</p>
+                    </div>
+                    <div class="herramienta-option" onclick="elegirHerramienta('rulero')">
+                        <img src="img/rulero.jpg" alt="Rulero">
+                        <p>Rulero</p>
+                    </div>
+                    <div class="herramienta-option" onclick="elegirHerramienta('tijera')">
+                        <img src="img/tijera.png" alt="Tijera">
+                        <p>Tijera</p>
+                    </div>
+                    <div class="herramienta-option" onclick="elegirHerramienta('maquinapelo')">
+                        <img src="img/maquinapelo.jpg" alt="Máquina de pelo">
+                        <p>Máquina</p>
+                    </div>
+                    <div class="herramienta-option" onclick="elegirHerramienta('colitapelo')">
+                        <img src="img/colitapelo.jpg" alt="Colita de pelo">
+                        <p>Colita</p>
+                    </div>
+                </div>
+                <!-- Botón crema (se muestra cuando todas las herramientas se han probado) -->
+                <div id="btn-crema-container" style="display: none; margin-top: 30px;">
+                    <img src="img/crema.png" alt="Crema" class="btn-crema" onclick="aplicarCrema()">
+                </div>
+            </div>
+
+            <!-- Vista de peinado1 (extension) -->
+            <div id="vista-peinado-extension" class="modal-vista">
+                <h2>Peinado con Extensión</h2>
+                <img src="img/peinado1.png" alt="Peinado 1" class="peinado-preview">
+                <button class="btn-volver" onclick="volverAHerramientas()">Volver</button>
+            </div>
+
+            <!-- Vista de peinado9 (rulero) -->
+            <div id="vista-peinado-rulero" class="modal-vista">
+                <h2>Peinado con Rulero</h2>
+                <img src="img/peinado9.png" alt="Peinado 9" class="peinado-preview">
+                <button class="btn-volver" onclick="volverAHerramientas()">Volver</button>
+            </div>
+
+            <!-- Vista de peinado7 (tijera) -->
+            <div id="vista-peinado-tijera" class="modal-vista">
+                <h2>Peinado con Tijera</h2>
+                <img src="img/peinado7.png" alt="Peinado 7" class="peinado-preview">
+                <button class="btn-volver" onclick="volverAHerramientas()">Volver</button>
+            </div>
+
+            <!-- Vista de peinado8 (maquinapelo) -->
+            <div id="vista-peinado-maquinapelo" class="modal-vista">
+                <h2>Peinado con Máquina</h2>
+                <img src="img/peinado8.png" alt="Peinado 8" class="peinado-preview">
+                <button class="btn-volver" onclick="volverAHerramientas()">Volver</button>
+            </div>
+
+            <!-- Vista de peinado6 (colitapelo) -->
+            <div id="vista-peinado-colitapelo" class="modal-vista">
+                <h2>Peinado con Colita</h2>
+                <img src="img/peinado6.png" alt="Peinado 6" class="peinado-preview">
+                <button class="btn-volver" onclick="volverAHerramientas()">Volver</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla Final -->
+    <div id="final" class="screen">
+        <img src="img/final.png" alt="Final" class="main-image">
+        <div class="mensaje-final">
+            <p class="titulo-mensaje">¡Feliz cumple Titi! Te amamos</p>
+            <p class="texto-mensaje">Tenés un ritual capilar + un corte de pelo con Mariana Aguilar</p>
+            <p class="whatsapp-mensaje">Coordina el turno al WhatsApp: <a href="https://wa.me/5491123323978" target="_blank" class="link-whatsapp">011 2332-3978</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
